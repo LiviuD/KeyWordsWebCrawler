@@ -17,6 +17,12 @@ namespace WebCrawlerEngine
         /// <returns>The string with the postions found</returns>
         Task<string> CrawlAsync(string url, string keys);
 
+        int MaximuNumberOfResults
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Gets the base search URL fro the web crawler.
         /// </summary>

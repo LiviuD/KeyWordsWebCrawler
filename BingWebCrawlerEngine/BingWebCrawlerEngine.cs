@@ -30,7 +30,7 @@ namespace BingWebCrawlerEngine
                     return 100;
                 }
             }
-            protected set { maximuNumberOfResults = value; }
+            set { maximuNumberOfResults = value; }
         }
 
         private string baseSearchURL;
@@ -44,7 +44,7 @@ namespace BingWebCrawlerEngine
                     return baseSearchURL;
 
             }
-            protected set
+            set
             {
                 baseSearchURL = value;
             }
@@ -71,7 +71,7 @@ namespace BingWebCrawlerEngine
         public override string RegularExpression
         {
             get { return regularExpression ?? (ConfigurationManager.AppSettings.Get("BingWebCrawlerEngineRegex") ?? "<cite\b[^>] *> (.*?) </cite>"); }
-            protected set { regularExpression = value; }
+            set { regularExpression = value; }
         }
         #endregion Properties
 

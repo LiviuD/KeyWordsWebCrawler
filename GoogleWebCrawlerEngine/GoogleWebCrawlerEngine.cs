@@ -31,7 +31,7 @@ namespace GoogleWebCrawlerEngine
                     return 100;
                 }
             }
-            protected set { maximuNUmberOfResults = value; }
+            set { maximuNUmberOfResults = value; }
         }
 
         private string baseSearchURL;
@@ -45,7 +45,7 @@ namespace GoogleWebCrawlerEngine
                     return baseSearchURL;
 
             }
-            protected set
+            set
             {
                 baseSearchURL = value;
             }
@@ -72,7 +72,7 @@ namespace GoogleWebCrawlerEngine
         public override string RegularExpression
         {
             get { return regularExpression ?? (ConfigurationManager.AppSettings.Get("GoogleWebCrawlerEngineRegex") ?? "<cite\b[^>] *> (.*?) </cite>"); }
-            protected set { regularExpression = value; }
+            set { regularExpression = value; }
         }
         #endregion Properties
 
@@ -96,7 +96,6 @@ namespace GoogleWebCrawlerEngine
         {
             var positions = new List<int>();
             var html = await GetHtml(keys);
-            var matches = 0;
             positions = FindPositions(html, url).ToList();
             if (positions.Count == 0) positions.Add(0);
 

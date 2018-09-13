@@ -27,7 +27,7 @@ namespace WebCrawlerEngine
         public abstract int MaximuNumberOfResults
         {
             get;
-            protected set;
+            set;
         }
         /// <summary>
         /// Gets the base search URL fro the web crawler.
@@ -38,7 +38,7 @@ namespace WebCrawlerEngine
         public abstract string BaseSearchURL
         {
             get;
-            protected set;
+            set;
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace WebCrawlerEngine
         public abstract string RegularExpression
         {
             get;
-            protected set;
+            set;
         }
         #endregion Properties
 
