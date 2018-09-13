@@ -1,0 +1,37 @@
+﻿@using KeyWordsWebCrawler.Models;
+@model WebCrawalerModel
+@{
+    ViewBag.Title = "Home Page";
+    HtmlHelper.UnobtrusiveJavaScriptEnabled = true;
+}
+@using (Ajax.BeginForm("GetCrawlerResults", "Home", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId= "results", OnBegin= "$('button#search').attr('disabled','disabled');$('#results').text('Please wait...');", OnComplete = "$('button#search').removeAttr('disabled');" }))
+{
+    <div style="margin-top:5px">
+        @Html.LabelFor(x => x.Url)
+    </div>
+    <div>
+        @Html.TextBoxFor(x => x.Url, htmlAttributes:new {placeholder= "www.sympli.com.au" })
+        @Html.ValidationMessageFor(x => x.Url)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Key)
+    </div>
+    <div>
+        @Html.TextBoxFor(x => x.Key, htmlAttributes: new { placeholder = "online title search" })
+        @Html.ValidationMessageFor(x => x.Key)
+    </div>
+    <div>
+        <button id="search" type="submit">Get search results positions</button>
+        <p id="results"></p>
+    </div>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+     <script src="https://cdn.jsdelivr.net/npm/jquery-ajax-unobtrusive@3.2.4/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/Page scripts/Home.js"></script>
+    <script type="text/javascript">
+
+    getResultsUrl = '@Url.Action("GetCrawlerResults")';
+    </script>}
