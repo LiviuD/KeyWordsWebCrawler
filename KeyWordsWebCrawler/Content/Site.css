@@ -1,14 +1,120 @@
 ﻿body {
     padding-top: 50px;
+    font-family: "Roboto", Arial, Helvetica, sans-serif !important;
     padding-bottom: 20px;
+    background-position: 50% 10%;
+    background-image: url('Images/coffewhite.jpg');
+    background-size: cover;
+    min-height: 350px;
 }
 
+    body.about {
+        font-family: "Exo", Arial, Helvetica, sans-serif !important;
+        background-image: url('Images/pencils.jpg');
+        background-position: 50% 50%;
+    }
+
+    body.contact {
+        background-size: auto;
+        font-family: "Exo", Arial, Helvetica, sans-serif !important;
+        background-image: url('Images/joanna-kosinska-129039-unsplash.jpg');
+        background-position: 10% 20%;
+    }
+
+.navbar {
+    opacity: 0.7;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
+button#search {
+    background: #18CDBC !important;
+    border: 0 !important;
+    border-radius: 5px;
+    color: #fff !important;
+    height: 50px !important;
+    font-family: "Oxygen", Arial, Helvetica, sans-serif !important;
+    font-size: 20px;
+}
+
+p#results {
+    font-size: 20px;
+    color: #eee;
+    font-family: "Exo", Arial, Helvetica, sans-serif !important;
+    opacity: 0.5;
+    background-color: black;
+    margin-top: 10px
+}
+
+input.input {
+    font-size: 20px;
+    width: 90%;
+}
+
+div.right {
+    display: inline;
+}
+
+@media (max-width: 767px) {
+    body.about .container.body-content,
+    body.content .container.body-content,
+    body.home .container.body-content {
+        margin-left: 100px;
+        padding-left: 0px;
+        max-width: 400px;
+    }
+
+    body.about .container.body-content {
+        margin-left: 200px;
+    }
+
+    button#search {
+        font-size: unset;
+    }
+
+    input.input {
+        font-size: initial;
+        width: 75%;
+    }
+
+    div.right
+    {
+        display : none;
+    }
+}
+
+@media (min-width: 768px) {
+    body.about .container.body-content,
+    body.content .container.body-content,
+    body.home .container.body-content {
+        margin-left: 20%;
+        padding-left: 0px;
+        /*max-width: 400px;*/
+    }
+    body.about .container.body-content {
+        margin-left: 400px;
+    }
+    div.right {
+        display: initial;
+    }
+
+}
+.left {
+    float: left;
+}
+
+    div.right .textarea {
+        /*margin-top: 40px;*/
+        margin-left: 20px;
+        width: 300px;
+        float: left;
+        height: 180px;
+        background-color: #f2dede;
+        overflow-y : scroll;
+    }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -23,10 +129,10 @@ textarea {
     max-width: 280px;
 }
 
-#search{
-    margin-top : 20px;
+#search {
+    margin-top: 20px;
 }
-span.field-validation-error
-{
-    color : orchid;
+
+span.field-validation-error {
+    color: orchid;
 }

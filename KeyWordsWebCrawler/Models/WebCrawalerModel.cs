@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KeyWordsWebCrawlerDomain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,6 +21,12 @@ namespace KeyWordsWebCrawler.Models
             get;
             set;
 
+        }
+
+        public IEnumerable<SearchResultsHistory> SearchResultsHistoryResults
+        {
+            get;
+            set;
         }
 
     }

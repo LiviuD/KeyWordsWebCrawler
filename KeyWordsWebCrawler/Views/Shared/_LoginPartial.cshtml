@@ -6,12 +6,12 @@
     @Html.AntiForgeryToken()
 
 <ul class="nav navbar-nav navbar-right">
-    <li>
+    @*<li>
         @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-    </li>
+    </li>*@
     @if (HttpContext.Current.User.IsInRole("Admin"))
     {
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Register a new user", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
     }
     <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
 </ul>

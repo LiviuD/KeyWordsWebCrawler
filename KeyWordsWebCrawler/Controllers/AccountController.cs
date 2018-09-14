@@ -157,6 +157,7 @@ namespace KeyWordsWebCrawler.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
+            ViewData["bodyClass"] = "register";
             return View();
         }
 

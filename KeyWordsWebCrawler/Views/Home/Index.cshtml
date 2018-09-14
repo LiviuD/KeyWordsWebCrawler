@@ -4,27 +4,41 @@
     ViewBag.Title = "Home Page";
     HtmlHelper.UnobtrusiveJavaScriptEnabled = true;
 }
-@using (Ajax.BeginForm("GetCrawlerResults", "Home", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId= "results", OnBegin= "$('button#search').attr('disabled','disabled');$('#results').text('Please wait...');", OnComplete = "$('button#search').removeAttr('disabled');" }))
-{
+<div class="left">
+    @using (Ajax.BeginForm("GetCrawlerResults", "Home", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "results", OnBegin = "$('button#search').attr('disabled','disabled');$('#results').text('Please wait...');", OnComplete = "onComplete(xhr, status)" }))
+    {
+        <div style="margin-top:5px">
+            @Html.LabelFor(x => x.Url, new { @style = "font-size: 20px;" })
+        </div>
+        <div>
+            @Html.TextBoxFor(x => x.Url, htmlAttributes: new { placeholder = (string)ViewBag.DefaultURLValue, @class = "input" })
+            @Html.ValidationMessageFor(x => x.Url)
+        </div>
+        <div style="margin-top: 10px;">
+            @Html.LabelFor(x => x.Key, new { @style = "font-size: 20px;" })
+        </div>
+        <div>
+            @Html.TextBoxFor(x => x.Key, htmlAttributes: new { placeholder = (string)ViewBag.DefaultKeyValue, @class = "input" })
+            @Html.ValidationMessageFor(x => x.Key)
+        </div>
+        <div>
+            <button id="search" type="submit">Get search results positions</button>
+            <p id="results"></p>
+        </div>
+    }
+</div>
+<div class="right" style="float:left; width : 400px;">
     <div style="margin-top:5px">
-        @Html.LabelFor(x => x.Url)
+        <p style="font-size : 20px;float: left; padding-left: 12px;">Your last search results: </p> 
     </div>
-    <div>
-        @Html.TextBoxFor(x => x.Url, htmlAttributes:new {placeholder= "www.sympli.com.au" })
-        @Html.ValidationMessageFor(x => x.Url)
+    
+    <div id="previousResults" class="textarea">
+        @foreach (var result in Model.SearchResultsHistoryResults)
+        {
+            <p>Url: <b>@result.Url</b>, key: <b>@result.Key</b>, Results: <b>@result.Results</b> - <span style="font-size: 12px;">@result    </span></p>
+        }
     </div>
-    <div>
-        @Html.LabelFor(x => x.Key)
-    </div>
-    <div>
-        @Html.TextBoxFor(x => x.Key, htmlAttributes: new { placeholder = "online title search" })
-        @Html.ValidationMessageFor(x => x.Key)
-    </div>
-    <div>
-        <button id="search" type="submit">Get search results positions</button>
-        <p id="results"></p>
-    </div>
-}
+</div>
 
 @section scripts
 {

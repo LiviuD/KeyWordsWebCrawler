@@ -64,8 +64,8 @@ namespace KeyWordsWebCrawler
                     {
                         var result1 = userManager.AddToRole(user.Id, "Admin");
                         //log-in
-                        var signInManager = context.GetUserManager<ApplicationSignInManager>();
-                        var status = signInManager.PasswordSignIn(user.UserName, userPWD, false, false);
+                        //var signInManager = context.GetUserManager<ApplicationSignInManager>();
+                        //var status = signInManager.PasswordSignIn(user.UserName, userPWD, false, false);
                     }
                 }
             }
