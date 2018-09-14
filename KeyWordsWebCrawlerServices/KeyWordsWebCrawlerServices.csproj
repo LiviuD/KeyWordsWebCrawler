@@ -43,8 +43,8 @@
   <ItemGroup>
     <Compile Include="Base\BaseService.cs" />
     <Compile Include="Base\IService.cs" />
-    <Compile Include="ISearchResultsHistoryService.cs" />
-    <Compile Include="SearchResultsHistoryService.cs" />
+    <Compile Include="SearchResultsHistory\ISearchResultsHistoryService.cs" />
+    <Compile Include="SearchResultsHistory\SearchResultsHistoryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
